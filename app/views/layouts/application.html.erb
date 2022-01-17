@@ -12,15 +12,36 @@
 
   <body>
   <% if flash[:notice] %>
-  		<div class="notification is-primary global-notification">
+  		<div>
   			<p class="notice"><%= notice %></p>
   		</div>
   	<% end %>
   	<% if flash[:alert] %>
-  		<div class="notification is-danger global-notification">
+  		<div>
   			<p class="alert"><%= alert %></p>
   		</div>
   	<% end %>
+
+    <div class="header">
+      <h3 class="title">
+        <%= link_to "The Club", posts_path, class: "button" %>
+      </h3>
+      <div class="links">
+        <% if user_signed_in? %>
+          <%= link_to "New Post", new_post_path, class: "button" %>
+        <% else %>
+          <%= link_to "Login", new_user_session_path, class: "button" %>
+          <%= link_to "Sign Up", new_user_registration_path, class: "button" %>
+        <% end %>
+      </div>
+    </div>
+    
+
     <%= yield %>
+    <footer class="footer">
+      <p class="content has-text-centered is-fixed-bottom">
+        Made by: @DigitalKnight0
+      </p>
+    </footer>
   </body>
 </html>
