@@ -1,4 +1,6 @@
+
 <%= form_with(model: post) do |form| %>
+<div class="flex flex-col gap-[20px]">
   <% if post.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
@@ -16,12 +18,14 @@
     <%= form.text_field :title %>
   </div>
 
-  <div class="field">
+  <div class="field flex">
     <%= form.label :body %>
     <%= form.text_area :body %>
   </div>
 
-  <div class="actions">
+  <div class="actions self-center p-[5px] bg-lime-500 rounded-xl">
     <%= form.submit %>
   </div>
+  </div>
 <% end %>
+
